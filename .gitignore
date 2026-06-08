@@ -42,3 +42,6 @@ uploads/
 
 # Generated
 *.pyc
+
+# Example environment files (can contain real secrets)
+.env.example

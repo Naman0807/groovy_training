@@ -185,12 +185,3 @@ python chatbot.py
 - Day 13: Tool Agent — Function calling in action
 
 ---
-
-## 🙏 Acknowledgments
-
-- **Krunal** — Mentor, Senior Backend Dev
-- **Rahul** — Frontend Lead
-- **Nauman** — AI/ML Engineer
-- **Dhruti** — QA Lead
-- **Parth** — DevOps
-- Entire Groovy Web team for the 30-day AI-First Engineer program

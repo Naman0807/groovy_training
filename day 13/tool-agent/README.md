@@ -8,7 +8,7 @@ Day 13 project demonstrating Google Gemini's **function calling** API. Two agent
 
 ```bash
 pip install -r requirements.txt
-export GEMINI_API_KEY=AIzaSyBflmoriU_JnEgGliF0yrsLqoFWSVQbKzk
+export GEMINI_API_KEY=your-gemini-api-key-here
 ```
 
 ---
