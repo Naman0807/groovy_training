@@ -1,0 +1,14 @@
+{
+  "name": "groovybot",
+  "version": "1.0.0",
+  "description": "Multi-turn CLI chatbot using Gemini SDK — Day 6 of Groovy Web training",
+  "type": "module",
+  "main": "chatbot.js",
+  "scripts": {
+    "start": "node chatbot.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "dotenv": "^16.0.0"
+  }
+}

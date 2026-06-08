@@ -1,0 +1,51 @@
+prompt_id,prompt_text,input_tokens,output_tokens,cost
+1,What is the capital of France?,10,7,0.00001
+2,Explain quantum computing in simple terms,22,98,0.00009
+3,Write a Python function to reverse a linked list,40,75,0.00007
+4,Summarize the water cycle,16,82,0.00007
+5,What are the benefits of REST APIs?,28,60,0.00006
+6,Write a haiku about programming,12,14,0.00002
+7,Explain Docker vs virtual machines,35,110,0.00010
+8,What is the difference between HTTP and HTTPS?,20,50,0.00005
+9,Write a SQL query to find duplicate emails,30,42,0.00005
+10,Explain the concept of recursion with an example,25,88,0.00008
+11,What is a CDN and why is it important?,18,48,0.00005
+12,Write a JavaScript function to debounce input,45,80,0.00008
+13,Explain CI/CD pipelines,32,75,0.00007
+14,What is the time complexity of binary search?,14,35,0.00003
+15,Write a CSS grid layout for a dashboard,38,100,0.00009
+16,Explain microservices architecture,35,108,0.00010
+17,What is the difference between SQL and NoSQL?,22,55,0.00005
+18,Write a bash script to backup a directory,28,62,0.00006
+19,Explain how JWT authentication works,32,85,0.00008
+20,What is the Event Loop in JavaScript?,28,70,0.00007
+21,Write a React component for a search bar,42,95,0.00009
+22,Explain the CAP theorem,28,80,0.00007
+23,What is TypeScript and why use it?,20,48,0.00005
+24,Write a Python decorator for logging,36,65,0.00006
+25,Explain graphQL vs REST,32,85,0.00008
+26,What is the OSI model?,25,98,0.00009
+27,Write a regex to validate email addresses,34,40,0.00005
+28,Explain serverless computing,22,70,0.00006
+29,What is an ORM and when should you use one?,28,60,0.00006
+30,Write a function to check if a string is a palindrome,18,30,0.00003
+31,Explain how HTTPS works,28,85,0.00008
+32,What are WebSockets?,20,52,0.00005
+33,Write a Dockerfile for a Node.js app,40,62,0.00006
+34,Explain the concept of idempotency in APIs,25,65,0.00006
+35,What is the difference between let, const, and var?,16,40,0.00004
+36,Write an API endpoint in Express.js,45,85,0.00008
+37,Explain database indexing,32,78,0.00007
+38,What is CORS and how do you handle it?,20,48,0.00005
+39,Write a Python class for a simple queue,34,55,0.00006
+40,Explain the Agile development methodology,28,82,0.00008
+41,What are environment variables and why use them?,14,35,0.00003
+42,Write a MongoDB aggregation pipeline example,42,100,0.00009
+43,Explain the concept of polyfills in JavaScript,22,58,0.00005
+44,What is the difference between process and thread?,25,68,0.00006
+45,Write an async/await example in Python,30,48,0.00005
+46,Explain blue-green deployment,28,70,0.00007
+47,What is the single responsibility principle?,20,52,0.00005
+48,Write a test case using pytest,36,58,0.00006
+49,Explain how DNS resolution works,32,88,0.00008
+50,What is the difference between PUT and PATCH?,18,45,0.00004
