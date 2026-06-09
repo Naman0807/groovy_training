@@ -45,3 +45,7 @@ uploads/
 
 # Example environment files (can contain real secrets)
 .env.example
+
+# Next.js
+.next/
+out/
