@@ -5,7 +5,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { upload, extractText } = require("./upload");
 const { chunkText } = require("./chunking");
 const { generateEmbedding, generateEmbeddings } = require("./embeddings");
-const vectorStore = require("./chroma-store");
+const vectorStore = require("./vectorstore");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 async function queryGemini(systemPrompt, userMessage) {
 	const model = genAI.getGenerativeModel({
-		model: "gemini-2.5-flash",
+		model: "gemini-2.5-flash-lite",
 		systemInstruction: systemPrompt,
 	});
 

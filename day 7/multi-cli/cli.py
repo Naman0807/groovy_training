@@ -39,6 +39,38 @@ RESET = "\033[0m"
 PROVIDER_NAMES = ", ".join(PROVIDER_CONFIG.keys())
 
 
+def load_available_providers():
+    available = {}
+    for name, config in PROVIDER_CONFIG.items():
+        api_key = os.environ.get(config["env_key"])
+        if not api_key:
+            print(f"Warning: {config['env_key']} not set — {name} unavailable", file=sys.stderr)
+            continue
+        try:
+            provider = config["class"](api_key)
+            available[name] = provider
+        except Exception as e:
+            print(f"Warning: {name} failed to initialize: {e}", file=sys.stderr)
+    return available
+
+
+def build_fallback_chain(preferred, available):
+    chain = []
+    names_in_order = list(PROVIDER_CONFIG.keys())
+
+    if preferred in names_in_order:
+        names_in_order.remove(preferred)
+        names_in_order.insert(0, preferred)
+
+    for name in names_in_order:
+        if name in available:
+            provider = available[name]
+            config = PROVIDER_CONFIG[name]
+            chain.append((name, provider, config))
+
+    return chain
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="GroovyBot — Multi-provider CLI Chatbot"
@@ -51,17 +83,17 @@ def main():
     )
     args = parser.parse_args()
 
-    config = PROVIDER_CONFIG[args.provider]
-    COLOR = config["color"]
-    label = config["label"]
+    available_providers = load_available_providers()
 
-    api_key = os.environ.get(config["env_key"])
-    if not api_key:
-        print(f"Error: {config['env_key']} not set in environment or .env file.")
-        print(f"Get a key and add it to your .env file as:\n{config['env_key']}=your_key_here")
+    if not available_providers:
+        print("Error: No API keys found. Set at least one in your .env file.", file=sys.stderr)
         sys.exit(1)
 
-    provider = config["class"](api_key)
+    fallback_chain = build_fallback_chain(args.provider, available_providers)
+
+    first_name, first_provider, first_config = fallback_chain[0]
+    COLOR = first_config["color"]
+    label = first_config["label"]
 
     print(COLOR + "╭" + "─" * 46 + "╮")
     print(f"│  🤖 GroovyBot — {label:<30} │")
@@ -85,15 +117,35 @@ def main():
 
         history.append({"role": "user", "parts": [user_input]})
 
-        try:
-            reply = provider.send_message(history, system_prompt=SYSTEM_PROMPT)
-        except Exception as e:
-            reply = f"Error: {e}"
+        reply = None
+        errors = []
+        used_name = None
+        used_config = None
 
-        history.append({"role": "assistant", "parts": [reply]})
+        for name, provider, config in fallback_chain:
+            try:
+                result = provider.send_message(history, system_prompt=SYSTEM_PROMPT)
+            except Exception as e:
+                result = f"Error: {e}"
 
-        print(f"\n{COLOR}── {label.upper()} ─────────────────────────{RESET}")
-        print(reply)
+            if result.startswith("Error:"):
+                errors.append(f"  {config['label']}: {result}")
+                continue
+
+            reply = result
+            used_name = name
+            used_config = config
+            break
+
+        if reply is None:
+            reply = "All providers failed:\n" + "\n".join(errors)
+            history.append({"role": "assistant", "parts": [reply]})
+            print(f"\n\033[1;31m── ALL PROVIDERS FAILED ─────────────────\033[0m")
+            print(reply)
+        else:
+            history.append({"role": "assistant", "parts": [reply]})
+            print(f"\n{used_config['color']}── {used_config['label'].upper()} ─────────────────────────{RESET}")
+            print(reply)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,21 @@
+Krunal: Alright, let's start the sprint retro. Nauman, you want to go first?
+
+Nauman: Yeah. The model deployment pipeline is finally green. The issue was the embedding dimension mismatch between training and inference. Took two days to trace. I've documented the fix in the wiki.
+
+Rahul: Nice. On frontend, I shipped the new dashboard. The charts are loading 40% faster after we switched from Recharts to Vega-Lite. One thing — the API response time still spikes when the filter params change. I need backend to look at that.
+
+Krunal: Noted. Dhruti, how's QA looking for the release?
+
+Dhruti: We're at 78% coverage on the new features. The auth flow tests are flaky — I think the test tokens are expiring mid-suite. I need someone to either extend the token lifespan or rotate them before each test block.
+
+Krunal: Naman, can you take that? Extend the test token expiry to 1 hour.
+
+Naman: Sure, I'll push the config change today. Also — I noticed the Slack notifications for failed deploys are going to the wrong channel. They're landing in #general instead of #dev-alerts.
+
+Krunal: Good catch. Fix that too please. Alright — Parth, anything from DevOps?
+
+Parth: The database migration scripts are ready for the schema change. I want to run them on staging first, then prod on Sunday. But Dhruti — I need QA sign-off on the rollback plan before I touch prod.
+
+Dhruti: I'll review the rollback script today and sign off by EOD.
+
+Krunal: Perfect. So action items: Naman — token expiry and Slack channel fix. Dhruti — rollback review. Rahul — send me the API endpoints that need optimization. Let's do a follow-up on Friday to check progress. Meeting done.

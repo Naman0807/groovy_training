@@ -4,8 +4,24 @@ export default function StudentList({ students }) {
   if (!students || students.length === 0) {
     return (
       <div className="empty">
+        <svg
+          className="empty-icon"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+          <line x1="9" y1="9" x2="15" y2="15" />
+          <line x1="15" y1="9" x2="9" y2="15" />
+        </svg>
         <p>No students found.</p>
-        <Link href="/students/create" className="btn btn-primary mt-2" style={{ display: 'inline-block' }}>
+        <Link href="/students/create" className="btn btn-primary mt-2">
           Add your first student
         </Link>
       </div>
@@ -13,26 +29,20 @@ export default function StudentList({ students }) {
   }
 
   return (
-    <div className="student-grid">
+    <div className="student-grid" aria-label="Student list" role="list">
       {students.map((student) => (
-        <div key={student.id} className="card">
-          <h2 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+        <div key={student.id} className="card" tabIndex="0" role="listitem">
+          <h2 className="card-title">
             <Link href={`/students/${student.id}`}>{student.name}</Link>
           </h2>
-          <p className="text-muted" style={{ marginBottom: '0.5rem', fontSize: '0.875rem' }}>
-            {student.email}
-          </p>
-          <p className="text-muted" style={{ marginBottom: '0.5rem', fontSize: '0.875rem' }}>
-            Roll: {student.roll_number}
-          </p>
+          <p className="card-text">{student.email}</p>
+          <p className="card-text">Roll: {student.roll_number}</p>
           {student.class && (
-            <p className="text-muted" style={{ marginBottom: '0.75rem', fontSize: '0.875rem' }}>
-              Class: {student.class}
-            </p>
+            <p className="card-text">Class: {student.class}</p>
           )}
-          <small className="text-muted">
+          <div className="card-meta">
             Created: {new Date(student.created_at).toLocaleDateString()}
-          </small>
+          </div>
         </div>
       ))}
     </div>

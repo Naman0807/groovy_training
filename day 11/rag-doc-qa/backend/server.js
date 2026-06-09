@@ -21,7 +21,7 @@ app.use(express.json({ limit: "50mb" }));
 
 async function queryGemini(systemPrompt, userMessage) {
 	const model = genAI.getGenerativeModel({
-		model: "gemini-2.5-flash",
+		model: "gemini-2.5-flash-lite",
 		systemInstruction: systemPrompt,
 		generationConfig: { maxOutputTokens: 4096 },
 	});

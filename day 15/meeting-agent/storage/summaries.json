@@ -1,0 +1,265 @@
+[
+  {
+    "id": 1,
+    "meeting_title": "Sprint Retro — Week 12",
+    "date": "2026-06-25",
+    "attendees": [
+      "Naman",
+      "Krunal",
+      "Rahul",
+      "Nauman",
+      "Dhruti"
+    ],
+    "key_decisions": [
+      "Adopt Claude tool_use for all future agent projects",
+      "Switch dashboard charting from Recharts to Vega-Lite permanently",
+      "Run DB migration on staging first, then prod on Sunday"
+    ],
+    "action_items": [
+      {
+        "task": "Extend test token expiry to 1 hour",
+        "assignee": "Naman",
+        "deadline": "2026-06-26"
+      },
+      {
+        "task": "Fix Slack deploy notifications channel from #general to #dev-alerts",
+        "assignee": "Naman",
+        "deadline": "2026-06-26"
+      },
+      {
+        "task": "Review and sign off on DB rollback plan",
+        "assignee": "Dhruti",
+        "deadline": "2026-06-26"
+      },
+      {
+        "task": "Send list of API endpoints needing optimization",
+        "assignee": "Rahul",
+        "deadline": "2026-06-27"
+      }
+    ],
+    "risks_blockers": [
+      "Auth test tokens expiring mid-suite causing flaky tests",
+      "Dhruti needs QA sign-off before Parth can run prod migration"
+    ],
+    "follow_up_meetings": [
+      {
+        "topic": "Sprint progress check",
+        "suggested_date": "2026-06-28"
+      }
+    ],
+    "suggested_slots": [
+      {
+        "date": "2026-06-29",
+        "time": "10:00",
+        "duration_min": 30
+      },
+      {
+        "date": "2026-06-29",
+        "time": "11:00",
+        "duration_min": 30
+      }
+    ],
+    "created_at": "2026-06-26T15:30:00"
+  },
+  {
+    "id": 2,
+    "created_at": "2026-06-08T14:32:07",
+    "meeting_title": "Sprint Retro",
+    "key_decisions": [
+      "Test token expiry to be extended to 1 hour.",
+      "Slack notifications for failed deploys to be redirected to #dev-alerts.",
+      "Dhruti to review the database migration rollback script by EOD and sign off.",
+      "Rahul to provide API endpoints that need optimization."
+    ],
+    "attendees": [
+      "Krunal",
+      "Nauman",
+      "Rahul",
+      "Dhruti",
+      "Naman",
+      "Parth"
+    ],
+    "follow_up_meetings": [
+      {
+        "topic": "Check progress on action items",
+        "suggested_date": "Friday"
+      }
+    ],
+    "action_items": [
+      {
+        "task": "Extend the test token expiry to 1 hour.",
+        "assignee": "Naman",
+        "deadline": "today"
+      },
+      {
+        "task": "Fix Slack notifications for failed deploys to go to #dev-alerts.",
+        "assignee": "Naman"
+      },
+      {
+        "task": "Review the database migration rollback script and sign off.",
+        "assignee": "Dhruti",
+        "deadline": "today EOD"
+      },
+      {
+        "task": "Send the API endpoints that need optimization.",
+        "assignee": "Rahul"
+      }
+    ],
+    "risks_blockers": [
+      "API response time spikes when filter parameters change.",
+      "Auth flow tests are flaky due to test tokens expiring mid-suite.",
+      "Slack notifications for failed deploys are going to the wrong channel (#general instead of #dev-alerts)."
+    ],
+    "suggested_slots": [
+      {
+        "date": "2026-06-09",
+        "time": "09:00",
+        "duration_min": 30
+      },
+      {
+        "date": "2026-06-09",
+        "time": "10:00",
+        "duration_min": 30
+      },
+      {
+        "date": "2026-06-09",
+        "time": "11:00",
+        "duration_min": 30
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "created_at": "2026-06-08T14:32:50",
+    "meeting_title": "Sprint Retro � June 26",
+    "action_items": [
+      {
+        "assignee": "Naman",
+        "deadline": "today",
+        "task": "Extend test token expiry to 1 hour."
+      },
+      {
+        "assignee": "Naman",
+        "deadline": "today",
+        "task": "Fix Slack notifications for failed deploys (move from #general to #dev-alerts)."
+      },
+      {
+        "task": "Review rollback script and sign off.",
+        "deadline": "EOD today",
+        "assignee": "Dhruti"
+      },
+      {
+        "assignee": "Rahul",
+        "task": "Send API endpoints that need optimization."
+      },
+      {
+        "deadline": "Sunday (for prod)",
+        "task": "Run database migration scripts on staging, then prod.",
+        "assignee": "Parth"
+      }
+    ],
+    "key_decisions": [
+      "Model deployment pipeline is finally green.",
+      "New dashboard shipped; charts loading 40% faster after switching from Recharts to Vega-Lite.",
+      "Naman will extend test token expiry to 1 hour.",
+      "Naman will fix Slack notifications for failed deploys to go to #dev-alerts instead of #general.",
+      "Parth will run database migration scripts on staging first, then prod on Sunday.",
+      "Dhruti will review the rollback script today and sign off by EOD."
+    ],
+    "attendees": [
+      "Krunal",
+      "Nauman",
+      "Rahul",
+      "Dhruti",
+      "Naman",
+      "Parth"
+    ],
+    "follow_up_meetings": [
+      {
+        "topic": "Check progress on action items",
+        "suggested_date": "Friday"
+      }
+    ],
+    "risks_blockers": [
+      "API response time still spikes when filter params change.",
+      "Auth flow tests are flaky due to test tokens expiring mid-suite.",
+      "Slack notifications for failed deploys are going to the wrong channel (#general instead of #dev-alerts).",
+      "Parth needs QA sign-off on the rollback plan before running migration scripts on production."
+    ],
+    "suggested_slots": [
+      {
+        "date": "2026-06-09",
+        "time": "09:00",
+        "duration_min": 30
+      },
+      {
+        "date": "2026-06-09",
+        "time": "10:00",
+        "duration_min": 30
+      },
+      {
+        "date": "2026-06-09",
+        "time": "11:00",
+        "duration_min": 30
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "created_at": "2026-06-09T12:13:48",
+    "action_items": [
+      {
+        "assignee": "Rahul",
+        "task": "Test Gemini with Gujarati input."
+      },
+      {
+        "assignee": "Krunal",
+        "task": "Update Slack poster to use a real webhook URL."
+      },
+      {
+        "assignee": "DevOps/Infra",
+        "task": "Provision Slack app and webhook URL."
+      },
+      {
+        "assignee": "DevOps/Infra",
+        "task": "Replace print() with requests.post() in slack_poster.py."
+      },
+      {
+        "assignee": "DevOps/Infra",
+        "task": "Deploy agent as a cron job or GitHub Action."
+      }
+    ],
+    "risks_blockers": [
+      "API key not set: Set `GEMINI_API_KEY`.",
+      "No internet: Agent fails gracefully.",
+      "Gemini rate-limited: Use cached output.",
+      "Screen sharing broken: Use pre-recorded asciinema cast."
+    ],
+    "meeting_title": "Daily Standup",
+    "date": "June 27",
+    "key_decisions": [
+      "The meeting summary tool will be deployed to the standup channel by Monday.",
+      "The Slack poster code needs to be updated to use a real Slack webhook URL instead of the mock URL.",
+      "The diarization feature for transcripts without speaker labels will be handled in v1.",
+      "Gemini's multilingual capabilities will be tested with Gujarati input.",
+      "The agent code will be deployed as a cron job or GitHub Action after each standup."
+    ],
+    "suggested_slots": [
+      {
+        "date": "2026-06-10",
+        "time": "09:00",
+        "duration_min": 30
+      },
+      {
+        "date": "2026-06-10",
+        "time": "10:00",
+        "duration_min": 30
+      },
+      {
+        "date": "2026-06-10",
+        "time": "11:00",
+        "duration_min": 30
+      }
+    ]
+  }
+]

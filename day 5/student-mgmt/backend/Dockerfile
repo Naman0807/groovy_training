@@ -19,6 +19,6 @@ EXPOSE 5000
 USER appuser
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:5000/api/items || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:5000/api/students || exit 1
 
 CMD ["node", "src/index.js"]

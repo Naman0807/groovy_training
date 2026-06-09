@@ -89,6 +89,12 @@ function App() {
 		return "var(--score-low)";
 	};
 
+	const scoreClass = (score) => {
+		if (score > 0.7) return "score-high";
+		if (score > 0.4) return "score-mid";
+		return "score-low";
+	};
+
 	return (
 		<div className="app">
 			<header className="app-header">
@@ -192,13 +198,13 @@ function App() {
 				{error && <div className="error-banner">{error}</div>}
 
 				{retrievedChunks.length > 0 && (
-					<div className="chunks-section">
+					<div className="chunks-section fade-in-up">
 						<h3>Retrieved Chunks (top {retrievedChunks.length})</h3>
 						<div className="chunks-list">
 							{retrievedChunks.map((chunk, i) => (
 								<div
 									key={i}
-									className="chunk-card"
+									className={`chunk-card ${scoreClass(chunk.score)}`}
 									style={{ borderLeftColor: scoreColor(chunk.score) }}
 								>
 									<div className="chunk-header">
@@ -222,7 +228,7 @@ function App() {
 						<div className="answer-text">{answer}</div>
 
 						{citations.length > 0 && (
-							<div className="citations-section">
+							<div className="citations-section fade-in-up">
 								<h3>Citations</h3>
 								{citations.map((cite, i) => (
 									<div key={i} className="citation-card">
@@ -241,13 +247,14 @@ function App() {
 
 				{!answer && !retrievedChunks.length && !loading && !error && (
 					<div className="empty-state">
+						<div className="empty-icon">&#9881;</div>
 						<p>Upload a document, then type a question to search with RAG.</p>
 					</div>
 				)}
 			</section>
 
 			{cost && (
-				<div className="cost-badge">
+				<div className="cost-badge fade-in">
 					<span className="cost-title">RAG Query</span>
 					<span className="tokens">
 						{cost.promptTokens.toLocaleString()} in &middot;{" "}
